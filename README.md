@@ -6,7 +6,6 @@ LaTeX Slides styles using tikz
 
 # Example:
 
-`
 \documentclass{ryslidepyramid}
 \usepackage{fancyvrb}
 \renewcommand{\theFancyVerbLine}{%
@@ -63,4 +62,4 @@ LaTeX Slides styles using tikz
 {\centering\kaishu\color{white} 见\,\,\,好\,\,\,就\,\,\,收\\}
 \vspace*{\fill}
 \end{document}
-`
+
