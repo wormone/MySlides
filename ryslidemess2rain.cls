@@ -108,9 +108,7 @@
 \newcommand{\mybackcover}{%
     \newpage\thispagestyle{empty}\vspace*{\fill}
     \renewcommand{\thefootnote}{\color{mylightgreen}$\infty$}
-    {\centering\color{mylightgreen}\normalsize$\Sigma\,3Q$%
-     \footnote{\color{mylightgreen}%
-     《中华人民共和国感谢法》2011 年第 1 条第 1 款。}\\}
+    {\centering\color{mylightgreen}\normalsize$\Sigma\,3Q$\\}
     \vfill%
 }
 % EOF
