@@ -1,5 +1,4 @@
 %% git test1 commit2 heheheh meiyoule haha
->>>>>>> 23165e066a337e1cab1b13f53af5ff9f33d2b41b
 % ryslidemess.cls <utf-8 encoding>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ryslidemess}[2012/06/07 by Rainy <renyuuu@gmail.com>]
