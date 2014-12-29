@@ -1,17 +1,13 @@
-% ryslidevideo.cls <utf-8 encoding>
+﻿% ryslidevideo.cls <utf-8 encoding>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ryslidevideo}[2012/07/25 by Rainy <renyuuu@gmail.com>]
 \LoadClass{article}
-% 版式
+% set screen size
 \RequirePackage[paperheight=96mm,paperwidth=128mm,%
                 hmargin=38pt,vmargin=26pt,%
                 headheight=13pt,headsep=13pt,footskip=22pt]%
                {geometry}
-% 中文
-\RequirePackage{ctex}
-\setCJKfamilyfont{myyouyuan}{幼圆}
-\newcommand{\myyouyuan}{\CJKfamily{myyouyuan}}
-% 背景
+% set background
 \RequirePackage{tikz,eso-pic,makecell}
 \usetikzlibrary{positioning}
 \newcommand{\mypage}{%
@@ -27,14 +23,13 @@
 \end{tikzpicture}
 }
 \AddToShipoutPicture{\mypage}
-% 首页
+% set cover page
 \RequirePackage{titling}
-%% 由于 titlesec 改写了 titling 定义的 \thetitle
-%% 于是定义 \mythetitle 代替 \thetitle
+%% \mythetitle is defined to substitute for \thetitle, 
+%% which is defined by Package titling but redefined by Package titlesec. 
 \let\oldtitle\title
 \renewcommand{\title}[1]{\oldtitle{#1}\newcommand{\mythetitle}{#1}}
-%% <---------
-% 页眉页脚
+% set footer and header
 \RequirePackage{totcount}
 \regtotcounter{page}
 \RequirePackage{fancyhdr}
@@ -55,39 +50,42 @@
       }
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-% 标题和目录
-\renewcommand\contentsname{提\ 要}
+% set formats for title and tableofcontents
+\renewcommand\contentsname{Outline}
 \RequirePackage{titlesec,titletoc}
-\titleformat{\section}{\huge\sf}%
-                      {\fontsize{40pt}{\baselineskip}\it\thesection}%
-                      {0.3em}{}
+\titleformat{\section}{}%
+                      {}%
+                      {0pt}%
+                      {\color{black!38}\fontsize{90}{10}\usefont{OT1}{pzc}{m}{n}\selectfont%
+					   \thesection\centering\\
+                       \color{black!62}\huge\sf\centering}
 \titlecontents{section}
               [0pt]
               {\addvspace{1ex}}%
               {\contentsmargin{0pt}%
                \makebox[1.5em][l]%
-               {\huge\it\thecontentslabel\hspace{0.3em}}%
-               \Large\sf\myyouyuan}
+               {\LARGE\it\color{black!38}\thecontentslabel\hspace{0.3em}}%
+               \large\sf}
               {\contentsmargin{0pt}}
               {}
-% 超链接设置放在最后
+% hyperref defination at last
 \AtEndOfClass{
 \RequirePackage[pdfpagemode=FullScreen,%
-                colorlinks=true,menucolor=gray]%
+                colorlinks=true,menucolor=gray,linkcolor=green!50!black]%
                {hyperref}
 }%
-% 字体和颜色设置
-\AtBeginDocument{\large\sf\myyouyuan}
-% 定义首页和末页
+% set global font and color
+\AtBeginDocument{\small\sf}
+% set \myfrontcover to show the front cover page
 \newcommand{\myfrontcover}{
   \begin{titlingpage}
   \setcounter{page}{-1}
   \begin{tikzpicture}[remember picture,overlay]
     \node (Title) at (current page.center)
-    [yshift=10mm,inner sep=20pt,font=\huge\sf\myyouyuan]
+    [yshift=10mm,inner sep=20pt,font=\huge\sf]
     {\mythetitle};
     \node (Author) at (current page.center)
-    [yshift=-15mm,inner sep=7pt,font=\large\sf\kaishu]
+    [yshift=-15mm,inner sep=7pt,font=\large\sf]
     {\makecell{\theauthor\\\thedate}};
     \node (start) at (current page.center)
     [circle,inner sep=2cm,opacity=0.6,scale=0.25,%
@@ -101,6 +99,7 @@
   \end{titlingpage}
   \setcounter{page}{0}
 }
+% set \mybackcover to show the back cover page
 \newcommand{\mybackcover}{
   \newpage\thispagestyle{empty}
   \addtocounter{page}{-1}
