@@ -3,15 +3,12 @@ MySlides
 
 LaTeX Slides styles using tikz
 
-demo tex: ryslide*TEST.tex
-demo pdf: ryslide*TEST.pdf
-
 	Why is it?
 		Beamer is the most popular class
-		Among \LaTeX{} packages for making presentation
-		However, \textsc{Beamer} is too straight
+		Among LaTeX packages for making presentation
+		However, Beamer is too straight
 		Interested by the slide design in ConTeXt
-		Let's design some new styles in \LaTeX{}
+		Let's design some new styles in LaTeX
 
 	Packages used
 		[geometry] set the screen size
@@ -27,5 +24,6 @@ demo pdf: ryslide*TEST.pdf
 		using \section{} to start a topic
 		using \newpage to begin a new slide
 		using \mybackcover to show the end page
-		no more difference with \LaTeX{}
-		no functions like pause in Beamer
+		no more difference with LaTeX
+
+![image](https://github.com/wormone/MySlides/raw/master/demo.jpg)
